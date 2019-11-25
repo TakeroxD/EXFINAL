@@ -6,7 +6,8 @@ const router = require('./routes.js')
 
 if(process.env.NODE_ENV == 'production'){
 var connectionURL = process.env.DATABASE_CONNECTION_STRING
-console.log("ConnectionUrl= " + connectionURL)
+var secret = process.env.SECRET
+console.log("ConnectionUrl= " + connectionURL + " y secret= " + secret)
 }
 
 
