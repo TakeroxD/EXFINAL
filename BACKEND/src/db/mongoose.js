@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
-const config = require('../config.js')
 // revisa tu connectionURL aqui :-)
-const connectionURL = process.env.connectionUrl || config.connectionURL
+var connectionURL = process.env.DATABASE_CONNECTION_STRING || require('../config.js').connectionURL
 
 mongoose.connect( connectionURL, {
   useNewUrlParser: true,
