@@ -4,5 +4,6 @@ var connectionURL = process.env.DATABASE_CONNECTION_STRING || require('../config
 
 mongoose.connect( connectionURL, {
   useNewUrlParser: true,
-  useCreateIndex: true
+  useCreateIndex: true,
+  useUnifiedTopology: true
 })
