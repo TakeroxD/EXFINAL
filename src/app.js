@@ -4,13 +4,6 @@ var cors = require('cors');
 
 const router = require('./routes.js')
 
-if(process.env.NODE_ENV == 'production'){
-var connectionURL = process.env.DATABASE_CONNECTION_STRING
-var secret = process.env.SECRET
-console.log("ConnectionUrl= " + connectionURL + " y secret= " + secret)
-}
-
-
 const app = express()
 const port = process.env.PORT || 3000
 

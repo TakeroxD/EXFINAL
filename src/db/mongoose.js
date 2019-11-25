@@ -7,10 +7,12 @@ else{
 var connectionURL =	require('../config.js').connectionURL
 }
 
-console.log("ConnectionUrl= " + connectionURL)
-
 mongoose.connect( connectionURL, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true
+}).then(function(){
+	console.log("Conexion DB exitosa")
+}).catch(function(){
+	console.log("Conexion DB fail")
 })
