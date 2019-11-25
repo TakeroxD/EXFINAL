@@ -7,6 +7,8 @@ else{
 var connectionURL =	require('../config.js').connectionURL
 }
 
+console.log(connectionURL)
+
 mongoose.connect( connectionURL, {
   useNewUrlParser: true,
   useCreateIndex: true,
