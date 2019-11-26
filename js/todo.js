@@ -8,8 +8,8 @@ var todos = document.querySelectorAll("input[type=checkbox]");
 
 function loadTodos() {
   $.ajax({
-    url: 'http://localhost:3000/todos',
-    // url: 'https://tuapp.herokuapp.com/todos',
+    //url: 'http://localhost:3000/todos',
+    url: 'https://exfin.herokuapp.com/todos',
     headers: {
         'Content-Type':'application/json',
         'Authorization': 'Bearer ' + token
@@ -22,6 +22,14 @@ function loadTodos() {
       for( let i = 0; i < data.length; i++) {
         // aqui va su código para agregar los elementos de la lista
         console.log(data[i].description)
+        let newElement = document.createElement("li");
+        newElement.classList.add("todo");
+        newElement.textContent = data[i].description;
+        if(data[i].completed){
+          newElement.classList.remove("todo");
+          newElement.classList.add("done");
+        }
+        $("#todo-list").append(newElement);
         // algo asi:
         // addTodo(data[i]._id, data[i].description, data[i].completed)
         // no tienen que usar la funcion de addTodo, es un ejemplo
@@ -53,8 +61,8 @@ input.addEventListener('keypress', function (event) {
     };
     json_to_send = JSON.stringify(json_to_send);
     $.ajax({
-      url: 'http://localhost:3000/todos',
-      // url: 'https://tuapp.herokuapp.com/todos',
+      //url: 'http://localhost:3000/todos',
+      url: 'https://exfin.herokuapp.com/todos',
       headers: {
           'Content-Type':'application/json',
           'Authorization': 'Bearer ' + token
@@ -65,7 +73,10 @@ input.addEventListener('keypress', function (event) {
       success: function(data){
         console.log(data)
         // agregar código aqui para poner los datos del todolist en el el html
-        
+      let newElement = document.createElement("li");
+      newElement.classList.add("todo");
+      newElement.textContent = input.value;
+      $("#todo-list").append(newElement);
       },
       error: function(error_msg) {
         alert((error_msg['responseText']));

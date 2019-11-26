@@ -1,6 +1,11 @@
 
 $('#signup_button').on('click', function(){
   // cargar los valores de password, email, name, age
+  let password = $('#password').val()
+  let email = $('#email').val()
+  let age = $('#age').val()
+  let name = $('#name').val()
+  
   json_to_send = {
     "password" : password,
     "email": email,
@@ -9,10 +14,11 @@ $('#signup_button').on('click', function(){
   };
 
   json_to_send = JSON.stringify(json_to_send);
+  console.log(json_to_send)
 
   $.ajax({
-    url: 'http://localhost:3000/users',
-    // url: 'https://tuapp.herokuapp.com/users',
+    //url: 'http://localhost:3000/users',
+    url: 'https://exfin.herokuapp.com/users',
     headers: {
         'Content-Type':'application/json'
     },
